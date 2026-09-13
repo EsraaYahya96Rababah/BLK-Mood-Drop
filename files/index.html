@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLK Mood Drop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="stage">
+  <div class="wordmark">BLK MOOD DROP</div>
+  <div class="progress" id="progress"></div>
+
+  <!-- INTRO -->
+  <div class="screen visible" id="intro">
+    <div class="cup-mark">☕</div>
+    <h1>شو بيقولك<br>مزاجك اليوم؟</h1>
+    <p>ثلاث أسئلة بسيطة… وبالآخر منطلعلك المشروب يلي يناسب حالتك اليوم بالضبط.</p>
+    <button class="btn-primary" style="margin-top:8px;" onclick="goTo(1)">يلا نبلش</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="screen" id="q1">
+    <div class="q-label">سؤال 1 من 3</div>
+    <h2 class="q-title">وين طاقتك اليوم؟</h2>
+    <div class="options">
+      <button class="opt" onclick="answer('energy',0)"><span class="ic">😴</span><span class="tx">تعبان شوي<small>بدي إشي يرجعلي حالي</small></span></button>
+      <button class="opt" onclick="answer('energy',1)"><span class="ic">🙂</span><span class="tx">ماشي الحال<small>مش منهار ومش نشيط</small></span></button>
+      <button class="opt" onclick="answer('energy',2)"><span class="ic">⚡</span><span class="tx">مليان طاقة<small>جاهز أدخل بأي إشي</small></span></button>
+    </div>
+    <div class="back-row"><button class="link-btn" onclick="goTo(0)">‹ رجوع</button></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="screen" id="q2">
+    <div class="q-label">سؤال 2 من 3</div>
+    <h2 class="q-title">وين رح تشرب قهوتك؟</h2>
+    <div class="options">
+      <button class="opt" onclick="answer('context',0)"><span class="ic">🏠</span><span class="tx">بالبيت<small>هدوء ولحالي</small></span></button>
+      <button class="opt" onclick="answer('context',1)"><span class="ic">👯</span><span class="tx">مع الشلة<small>سواليف وضحك</small></span></button>
+      <button class="opt" onclick="answer('context',2)"><span class="ic">💻</span><span class="tx">وسط الشغل<small>عندي مشاوير وديدلاينز</small></span></button>
+    </div>
+    <div class="back-row"><button class="link-btn" onclick="goTo(1)">‹ رجوع</button></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="screen" id="q3">
+    <div class="q-label">سؤال 3 من 3</div>
+    <h2 class="q-title">نفسك بإشي...</h2>
+    <div class="options">
+      <button class="opt" onclick="answer('temp',0)"><span class="ic">🧊</span><span class="tx">بارد ومنعش<small>يصحيني ويبردلي راسي</small></span></button>
+      <button class="opt" onclick="answer('temp',1)"><span class="ic">☕</span><span class="tx">دافي وهادي<small>إشي كلاسيكي وطيب</small></span></button>
+      <button class="opt" onclick="answer('temp',2)"><span class="ic">🔥</span><span class="tx">قوي وسريع مفعوله<small>بدي دفعة حقيقية</small></span></button>
+    </div>
+    <div class="back-row"><button class="link-btn" onclick="goTo(2)">‹ رجوع</button></div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="screen" id="result">
+    <div class="result-eyebrow">YOUR MOOD DROP</div>
+    <div class="card-visual" id="cardVisual">
+      <div class="persona-name" id="personaName">—</div>
+      <div class="persona-tag" id="personaTag">—</div>
+      <div class="match-row">
+        <div class="match-label">BLK MATCH</div>
+        <div class="match-drink" id="matchDrink">—</div>
+      </div>
+    </div>
+        <a class="btn-order" href="https://blk.jo/en/locations/" target="_blank" rel="noopener">اطلبه الآن — دوّر على أقرب فرع ☕</a>
+
+    <div class="promo-slot">
+      <div class="promo-slot-label">🎁 CONCEPT SLOT</div>
+      <div class="promo-slot-text">هون بالضبط بيظهر كود خصم حقيقي لو BLK تبنّت التجربة — مكان جاهز مسبقًا للتفعيل.</div>
+    </div>
+    <div class="actions">
+      <button class="btn-primary" onclick="downloadCard()">حمّلي الكارد 📥</button>
+      <button class="btn-secondary" onclick="restart()">جربيها من جديد</button>
+    </div>
+    <div class="footnote">تجربة مفهوم مستقلة — Fan concept، مش تطبيق رسمي لـ BLK</div>
+  </div>
+</div>
+
+<canvas id="exportCanvas" width="1080" height="1350"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
